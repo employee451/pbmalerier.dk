@@ -200,3 +200,14 @@ p.footer-text {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
+
+#search {
+  --pagefind-ui-primary: black;
+  --pagefind-ui-text: black;
+  --pagefind-ui-background: white;
+  --pagefind-ui-border: black;
+  --pagefind-ui-tag: white;
+  --pagefind-ui-border-width: 3px;
+  --pagefind-ui-font: inherit;
+  margin-bottom: 4rem;
+}

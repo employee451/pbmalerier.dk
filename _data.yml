@@ -1,2 +1,12 @@
 layout: layouts/main.vto
 sitetitle: Per Bøggild Malerier
+openGraphLayout: layouts/og_images.jsx
+pagefind: true
+metas:
+  site: =sitetitle
+  title: =title
+  lang: da-DK
+  description: =description || $ .page-description || $ div.painting-description
+  image: =painting
+  color: =background_color
+  generator: false

@@ -9,7 +9,9 @@
     <a href="/">
       <img src="/flower.svg" role="img" alt="Flower" class="flower" />
     </a>
-    {{ content }}
+    <main {{ if pagefind }}data-pagefind-body{{ /if }}>
+      {{ content }}
+    </main>
     <img src="/flower.svg" role="img" alt="Flower" class="flower" />
     <div class="footer">
       <p class="footer-text">{{ sitetitle }} {{ new Date().getFullYear() }}</p>
