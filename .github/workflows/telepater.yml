@@ -7,18 +7,18 @@ jobs:
   telepater:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       
       - name: vi sætter deno op
-        uses: denoland/setup-deno@v2
+        uses: denoland/setup-deno@v2.0.5
         with:
-          deno-version: "2.1.6"
+          deno-version: v2.x
 
       - name: vi bygger siden
         run: deno task lume
 
       - name: telepaterer til raspberry pi
-        uses: easingthemes/ssh-deploy@main
+        uses: easingthemes/ssh-deploy@v6.0.1
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i --delete"
