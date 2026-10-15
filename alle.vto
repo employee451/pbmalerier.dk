@@ -1,0 +1,27 @@
+---
+title: Alle malerier
+---
+<ul class="breadcrumbs">
+  <li>
+    <a href="/">{{ sitetitle }}</a>
+  </li>
+  <li>
+    {{ title }}
+  </li>
+</ul>
+
+<h1 class="maintitle">{{ title }}</h1>
+{{ if content }}
+<div class="page-description">{{ content }}</div>
+{{ /if }}
+
+<ul class="painting-list">
+{{ for painting_result of search.pages("type=painting") }}
+<li>
+<a href="{{ painting_result.url }}">
+	<img src="{{ painting_result.painting }}" alt="{{ painting_result.title || 'Maleri' }}" transform-images="avif webp jpg 800@2" />
+	<h2>{{ painting_result.title }}</h2>
+</a>
+</li>  
+{{ /for }}
+</ul>

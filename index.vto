@@ -1,0 +1,27 @@
+---
+title: Per Bøggild Malerier
+background_color: '#1fbfaf'
+description: >-
+  Jeg **tester** bare lige lidt her... men jeg synes sgu det er *meget* sjovt at
+  lave den her hjemmeside! Prøv at tjek [det
+  her](https://www.youtube.com/watch?v=dQw4w9WgXcQ) ud
+---
+<h1 class="maintitle">{{ title }}</h1>
+{{ if description }}
+<div class="page-description">{{ description |> md }}</div>
+{{ /if }}
+
+<ul class="category-list">
+{{ for category of search.pages("type=category") }}
+  <li>
+    <a href="{{ category.url }}">
+      {{ category.title }}
+    </a>
+  </li>
+{{ /for }}
+  <li>
+    <a href="/alle">
+      Alle malerier
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,43 @@
+---
+layout: layouts/main.vto
+---
+<ul class="breadcrumbs">
+  <li>
+    <a href="/">{{ sitetitle }}</a>
+  </li>
+  <li>
+    {{ title }}
+  </li>
+</ul>
+
+<h1 class="maintitle">{{ title }}</h1>
+{{ if painting }}
+  <div class="painting">
+    <img src="{{ painting }}" alt="{{ title || 'Maleri' }}" transform-images="avif webp jpg 300@2" />
+  </div>
+{{ else }}
+  <p class="painting-description">Intet maleri valgt.</p>
+{{ /if }}
+<div class="painting-description">
+  {{ content }}
+</div>
+
+
+{{ set file_name = (page.src.path.split("/").pop() + page.src.ext).normalize("NFC") }}
+{{ set categories = search.pages("type=category").filter(c => c.paintings?.some(p => p.normalize("NFC") === file_name)) }}
+
+{{ if categories.length }}
+
+<h3 class="smaller-subtitle-on-page">Kategorier med {{ title }}</h3>
+
+<ul class="category-list">
+{{ for category of categories }}
+  <li>
+    <a href="{{ category.url }}">
+      {{ category.title }}
+    </a>
+  </li>
+{{ /for }}
+</ul>
+
+{{ /if }}
